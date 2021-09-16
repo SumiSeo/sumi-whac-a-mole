@@ -1,4 +1,3 @@
-
 const form = document.querySelector("form");
 const btnStart = document.querySelector(".btn__start");
 const noticeTime = document.querySelector(".notice__column--time");
@@ -30,17 +29,15 @@ const showMole = () => {
         molBoxDivs.forEach((molBoxDiv)=>{
             const randomMole = generateNumber(24);
             if(parseInt(molBoxDiv.getAttribute("data-num")) === randomMole && arrMoles.length<5) {
-                //Have to make a condition to make "maximum 5 number"
                 arrMoles.push(randomMole)
                 molBoxDiv.textContent="+_+";
                 molBoxDiv.style.backgroundColor="#fbc531";
                 console.log(arrMoles);
+
                 molBoxDiv.addEventListener("click", () => {
-                    //local Storage of score  should be deleted
                     arrMoles.pop();
                     molBoxDiv.textContent="X";
                     molBoxDiv.style.backgroundColor="#fff";
-                    //The score should be increased just by one
                     score++;
                     localStorage.setItem("currentScore", score);
                     noticeScore.textContent = `점수 : ${score}`;
@@ -80,7 +77,6 @@ const gameTrigger = () => {
     }, 1000);
    
 };
-
 
 btnStart.addEventListener("click", gameTrigger);
 
